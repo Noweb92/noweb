@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS / system
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Local env / secrets — never commit these
+.env
+.env.local
+*.pem
+*.key
+secrets.txt
+
+# Build artefacts (the zip can be regenerated from noweb-site/)
+# Keep noweb-site.zip in version control for now — it's part of the deployable artefacts.
+# Uncomment the next line to ignore it if you regenerate it frequently:
+# noweb-site.zip

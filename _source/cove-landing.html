@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cove. — Premium websites for Perth businesses. Live in 7 days. $990.</title>
+<meta name="description" content="Custom-designed websites for Perth small businesses. Fixed price $990. Live in 7 days. 30-day money-back guarantee." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Premium websites for Perth businesses. $990. Live in 7 days." />
+<meta property="og:description" content="Custom design, mobile-first, SEO ready. Money-back guarantee." />
+<meta property="og:type" content="website" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- META PIXEL — REPLACE PIXEL_ID -->
+<!-- 
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'PIXEL_ID_HERE');
+fbq('track', 'PageView');
+</script>
+-->
+
+<style>
+  :root {
+    --bg: #0F0E0C;
+    --bg-soft: #1A1813;
+    --bg-card: #1F1C16;
+    --cream: #F2E9D8;
+    --cream-soft: #C8BFA9;
+    --terracotta: #E47148;
+    --terracotta-deep: #C25E3C;
+    --moss: #A6B57E;
+    --line: rgba(242, 233, 216, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+  }
+
+  .display {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 50, "opsz" 144;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  /* === ANNOUNCEMENT BAR === */
+  .announce {
+    background: var(--terracotta);
+    color: var(--bg);
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    position: relative;
+    z-index: 50;
+  }
+
+  .announce strong { font-weight: 700; }
+
+  /* === NAV === */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: -0.03em;
+    font-variation-settings: "SOFT" 100;
+    color: var(--cream);
+  }
+
+  .logo span { color: var(--terracotta); }
+
+  .nav-cta {
+    padding: 0.65rem 1.5rem;
+    background: var(--terracotta);
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 999px;
+    transition: all 0.3s;
+  }
+
+  .nav-cta:hover {
+    background: var(--cream);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-cta { padding: 0.55rem 1rem; font-size: 0.8rem; }
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 5rem 2.5rem 6rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    margin-bottom: 2.5rem;
+    color: var(--cream-soft);
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--moss);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--moss);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    margin-bottom: 1.5rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+    font-variation-settings: "SOFT" 100;
+  }
+
+  .hero h1 .strike {
+    position: relative;
+    color: var(--cream-soft);
+    font-style: normal;
+  }
+
+  .hero h1 .strike::after {
+    content: '';
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    top: 52%;
+    height: 4px;
+    background: var(--terracotta);
+    transform: rotate(-3deg);
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--cream-soft);
+    max-width: 620px;
+    margin: 0 auto 3rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .btn-primary {
+    padding: 1.1rem 2.4rem;
+    background: var(--terracotta);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 30px rgba(228, 113, 72, 0.35);
+  }
+
+  .btn-primary:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(228, 113, 72, 0.5);
+  }
+
+  .btn-primary.large {
+    padding: 1.4rem 3rem;
+    font-size: 1.15rem;
+  }
+
+  .hero-trust {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+    color: var(--cream-soft);
+    font-size: 0.85rem;
+  }
+
+  .hero-trust div {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .hero-trust div::before {
+    content: '✓';
+    color: var(--moss);
+    font-weight: bold;
+  }
+
+  /* === HERO MOCKUP === */
+  .hero-mockup {
+    margin-top: 5rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 16/10;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .browser-bar {
+    background: var(--bg-soft);
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .browser-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: rgba(242, 233, 216, 0.2);
+  }
+
+  .browser-url {
+    flex: 1;
+    margin: 0 1rem;
+    background: rgba(242, 233, 216, 0.05);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cream-soft);
+    text-align: center;
+  }
+
+  .mockup-content {
+    height: calc(100% - 38px);
+    background: linear-gradient(135deg, #F2E9D8 0%, #EADDC3 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mockup-content::before {
+    content: 'Saltwood Kitchen';
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-family: 'Fraunces', serif;
+    color: #1A1410;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .mockup-content::after {
+    content: 'Slow mornings, strong coffee, coastal soul.';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Fraunces', serif;
+    color: #1A1410;
+    font-size: clamp(1.4rem, 4vw, 3rem);
+    font-style: italic;
+    text-align: center;
+    width: 80%;
+  }
+
+  /* === PROBLEM === */
+  .problem {
+    padding: 8rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .section-tag {
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .problem-card {
+    padding: 2.5rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: all 0.4s;
+  }
+
+  .problem-card:hover {
+    border-color: var(--terracotta);
+    transform: translateY(-4px);
+  }
+
+  .problem-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .problem-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .problem-card p {
+    color: var(--cream-soft);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .problem-grid { grid-template-columns: 1fr; }
+  }
+
+  /* === SOLUTION === */
+  .solution {
+    padding: 8rem 2.5rem;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .solution-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .solution-list {
+    list-style: none;
+    margin-top: 2rem;
+  }
+
+  .solution-list li {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .solution-list li::before {
+    content: '→';
+    color: var(--terracotta);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .solution-list li strong {
+    color: var(--cream);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .solution-list li span {
+    color: var(--cream-soft);
+    font-size: 0.92rem;
+  }
+
+  .solution-card {
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+    border-radius: 12px;
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solution-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .solution-card-content { position: relative; z-index: 2; }
+
+  .solution-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .solution-card p {
+    margin-bottom: 2rem;
+    opacity: 0.92;
+  }
+
+  .solution-card .price-line {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    font-family: 'Fraunces', serif;
+  }
+
+  .price-old {
+    font-size: 1.3rem;
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  .price-new {
+    font-size: 3.5rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .solution-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .solution { padding: 5rem 1.25rem; }
+  }
+
+  /* === PROCESS === */
+  .process {
+    padding: 8rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+  }
+
+  .process-step {
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .process-step h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+
+  .process-step p {
+    color: var(--cream-soft);
+    font-size: 0.92rem;
+  }
+
+  .process-step .duration {
+    margin-top: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--moss);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 768px) {
+    .process { padding: 5rem 1.25rem; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* === TESTIMONIALS === */
+  .testimonials {
+    padding: 8rem 2.5rem;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .testimonials-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .testimonial {
+    padding: 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  .testimonial-stars {
+    color: var(--terracotta);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .testimonial-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--cream);
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep));
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    color: var(--cream);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .testimonial-info .name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .testimonial-info .role {
+    color: var(--cream-soft);
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials { padding: 5rem 1.25rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
+  /* === PRICING / OFFER === */
+  .pricing {
+    padding: 8rem 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .price-card {
+    background: var(--bg-card);
+    border: 2px solid var(--terracotta);
+    border-radius: 12px;
+    padding: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-badge {
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    background: var(--terracotta);
+    color: var(--bg);
+    padding: 0.5rem 1.2rem;
+    border-radius: 0 0 6px 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  .price-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .price-card .price-desc {
+    color: var(--cream-soft);
+    margin-bottom: 2rem;
+  }
+
+  .price-display {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .price-display .old {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    text-decoration: line-through;
+    color: var(--cream-soft);
+    opacity: 0.5;
+  }
+
+  .price-display .new {
+    font-family: 'Fraunces', serif;
+    font-size: 4.5rem;
+    color: var(--terracotta);
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  .price-display .currency {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--cream-soft);
+    align-self: end;
+    padding-bottom: 0.6rem;
+  }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .price-features li {
+    padding: 0.6rem 0;
+    color: var(--cream);
+    display: flex;
+    align-items: start;
+    gap: 0.7rem;
+  }
+
+  .price-features li::before {
+    content: '✓';
+    color: var(--moss);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  /* Toggle upsell */
+  .upsell {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .upsell.active {
+    border-color: var(--terracotta);
+    background: rgba(228, 113, 72, 0.08);
+  }
+
+  .upsell-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .upsell-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--cream-soft);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .upsell.active .upsell-checkbox {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+  }
+
+  .upsell.active .upsell-checkbox::after {
+    content: '✓';
+    color: var(--bg);
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+
+  .upsell-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    flex: 1;
+    font-weight: 500;
+  }
+
+  .upsell-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--terracotta);
+    font-weight: 600;
+  }
+
+  .upsell-desc {
+    color: var(--cream-soft);
+    font-size: 0.88rem;
+    padding-left: 38px;
+  }
+
+  .upsell-desc strong { color: var(--cream); }
+
+  .total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+    border-top: 1px dashed var(--line);
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .total-label {
+    font-size: 0.95rem;
+    color: var(--cream-soft);
+  }
+
+  .total-amount {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .total-amount em {
+    font-size: 0.85rem;
+    color: var(--cream-soft);
+    font-style: normal;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* === GUARANTEE === */
+  .guarantee {
+    padding: 6rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-soft);
+  }
+
+  .guarantee-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .guarantee-badge {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--bg);
+    text-align: center;
+    line-height: 1;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .guarantee h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.2rem;
+  }
+
+  .guarantee h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .guarantee p {
+    color: var(--cream-soft);
+    font-size: 1.1rem;
+  }
+
+  /* === FAQ === */
+  .faq {
+    padding: 8rem 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-list {
+    margin-top: 4rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--cream);
+    text-align: left;
+    padding: 1.8rem 0;
+    font-size: 1.1rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+  }
+
+  .faq-question:hover { color: var(--terracotta); }
+
+  .faq-question .icon {
+    font-size: 1.5rem;
+    color: var(--terracotta);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .faq-item.open .faq-question .icon { transform: rotate(45deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    color: var(--cream-soft);
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 400px;
+    padding-bottom: 1.8rem;
+  }
+
+  /* === FINAL CTA === */
+  .final-cta {
+    padding: 8rem 2.5rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  }
+
+  .final-cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .final-cta h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .final-cta p {
+    color: var(--cream-soft);
+    font-size: 1.15rem;
+    margin-bottom: 3rem;
+  }
+
+  /* === FOOTER === */
+  footer {
+    padding: 4rem 2.5rem 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    max-width: 320px;
+  }
+
+  .footer-brand .logo {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-brand p {
+    color: var(--cream-soft);
+    font-size: 0.88rem;
+  }
+
+  .footer-meta {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-meta div {
+    font-size: 0.85rem;
+  }
+
+  .footer-meta .label {
+    color: var(--terracotta);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: var(--cream-soft);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* === FLOATING CHAT === */
+  .chat-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: #25D366;
+    color: white;
+    padding: 0.9rem 1.4rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s;
+  }
+
+  .chat-float:hover { transform: translateY(-3px); }
+
+  /* === REVEAL === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .fade-in-1 { animation-delay: 0.1s; }
+  .fade-in-2 { animation-delay: 0.25s; }
+  .fade-in-3 { animation-delay: 0.4s; }
+  .fade-in-4 { animation-delay: 0.55s; }
+  .fade-in-5 { animation-delay: 0.7s; }
+
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <strong>May Launch:</strong> Premium websites at $990 (was $2,000) — only 12 spots available
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Cove<span>.</span></div>
+  <a href="#offer" class="nav-cta">Claim your spot</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag mono fade-in fade-in-1">Booking May 2025 — limited spots</div>
+
+  <h1 class="display fade-in fade-in-2">
+    Premium websites for Perth businesses.<br/>
+    Live in <em>7 days</em>. <span class="strike">$2,000</span> $990.
+  </h1>
+
+  <p class="hero-sub fade-in fade-in-3">
+    We design, build and launch your website in one week. Fixed price. No hidden costs. 30-day money-back guarantee.
+  </p>
+
+  <div class="hero-cta fade-in fade-in-4">
+    <a href="#offer" class="btn-primary large">Claim your spot — $990 →</a>
+    <span class="mono" style="color: var(--cream-soft);">May spots remaining: 12 of 20</span>
+  </div>
+
+  <div class="hero-trust fade-in fade-in-5">
+    <div>Perth-based studio</div>
+    <div>30-day money-back</div>
+    <div>Live in 7 days</div>
+    <div>ABN registered</div>
+  </div>
+
+  <!-- Mockup -->
+  <div class="hero-mockup fade-in fade-in-5">
+    <div class="browser-bar">
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+      <div class="browser-url">saltwoodkitchen.com.au</div>
+    </div>
+    <div class="mockup-content"></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-header">
+    <div class="section-tag mono reveal">— The problem</div>
+    <h2 class="display reveal">Your website is <em>quietly</em><br/>losing you customers.</h2>
+  </div>
+
+  <div class="problem-grid">
+    <div class="problem-card reveal">
+      <div class="problem-num display">01</div>
+      <h3>It's not mobile-ready</h3>
+      <p>72% of your potential customers browse on their phone. If your site doesn't load fast and clean on mobile, they're gone in 3 seconds.</p>
+    </div>
+
+    <div class="problem-card reveal">
+      <div class="problem-num display">02</div>
+      <h3>It looks dated</h3>
+      <p>Your site was built in 2017. The internet has moved on. Modern customers judge your business in the first second they land on your homepage.</p>
+    </div>
+
+    <div class="problem-card reveal">
+      <div class="problem-num display">03</div>
+      <h3>It doesn't convert</h3>
+      <p>No clear call to action. No booking button. No reason to call. Your traffic visits, then leaves — without ever becoming a customer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="solution-inner">
+    <div>
+      <div class="section-tag mono reveal">— The solution</div>
+      <h2 class="display reveal" style="font-size: clamp(2rem, 4.5vw, 3.5rem);">Everything you need to <em>start winning</em> customers online.</h2>
+
+      <ul class="solution-list">
+        <li class="reveal"><div><strong>Custom-designed for your business</strong><span>No generic templates. Every site is designed for your brand and your customers.</span></div></li>
+        <li class="reveal"><div><strong>Mobile-first, blazing fast</strong><span>Loads in under 2 seconds on 4G. Looks beautiful on every device.</span></div></li>
+        <li class="reveal"><div><strong>SEO foundations included</strong><span>Optimised structure so Google can find you. Local SEO ready.</span></div></li>
+        <li class="reveal"><div><strong>Booking, contact, integrations</strong><span>Whatever you need: bookings, online ordering, contact forms, social.</span></div></li>
+        <li class="reveal"><div><strong>Live in 7 days, fixed price</strong><span>One flat fee. No surprises. Live within a week of payment.</span></div></li>
+        <li class="reveal"><div><strong>30 days money-back</strong><span>If you don't love it, full refund. No questions, no awkwardness.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="solution-card reveal">
+      <div class="solution-card-content">
+        <div class="mono" style="margin-bottom: 1.5rem;">— The whole package</div>
+        <h3>One fixed price.<br/>No surprises.</h3>
+        <p>Custom design, build, hosting setup, launch, and 30-day guarantee. Everything for one number.</p>
+        <div class="price-line">
+          <span class="price-old">$2,000</span>
+          <span class="price-new">$990</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-header">
+    <div class="section-tag mono reveal">— How it works</div>
+    <h2 class="display reveal">From <em>order</em> to <em>live</em><br/>in 7 days.</h2>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="step-num">01</div>
+      <h3>Pay & brief</h3>
+      <p>Secure your spot. Fill our 10-minute brief: logo, photos, content, vision.</p>
+      <div class="duration">Day 1 · 10 min</div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-num">02</div>
+      <h3>Design preview</h3>
+      <p>You receive a full design preview within 48h. We refine until it's perfect.</p>
+      <div class="duration">Day 2-3 · We design</div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-num">03</div>
+      <h3>Build & polish</h3>
+      <p>We code, optimise, and stress-test on every device. Speed, SEO, accessibility.</p>
+      <div class="duration">Day 4-6 · We build</div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-num">04</div>
+      <h3>Launch</h3>
+      <p>We deploy, hand over the keys, walk you through everything. You're live.</p>
+      <div class="duration">Day 7 · You're online</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-header">
+      <div class="section-tag mono reveal">— What clients say</div>
+      <h2 class="display reveal">Perth businesses,<br/><em>online and winning</em>.</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Got more bookings in the first week than the previous three months combined. Worth every dollar."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SK</div>
+          <div class="testimonial-info">
+            <div class="name">Sarah K.</div>
+            <div class="role">Owner, Cottesloe Café</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Was sceptical about the price. Showed up in 6 days, no compromise on quality. Better than the $4K quote I got elsewhere."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div class="testimonial-info">
+            <div class="name">James M.</div>
+            <div class="role">Director, Fremantle Trades</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"My old site looked like a 2010 disaster. The new one finally matches the level of my business. Calls have doubled."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RP</div>
+          <div class="testimonial-info">
+            <div class="name">Rachel P.</div>
+            <div class="role">Founder, Subiaco Wellness</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / OFFER -->
+<section class="pricing" id="offer">
+  <div class="section-header">
+    <div class="section-tag mono reveal">— The offer</div>
+    <h2 class="display reveal">Lock in your <em>May spot</em>.</h2>
+  </div>
+
+  <div class="price-card reveal">
+    <div class="price-badge">May Launch</div>
+
+    <h3>The Cove Website Package</h3>
+    <p class="price-desc">Everything to get your business online, in one fixed price.</p>
+
+    <div class="price-display">
+      <span class="old">$2,000</span>
+      <span class="new">$990</span>
+      <span class="currency">AUD · one-time</span>
+    </div>
+
+    <ul class="price-features">
+      <li>Custom-designed website (up to 6 pages)</li>
+      <li>Mobile-first, fast-loading build</li>
+      <li>Local SEO setup & Google indexing</li>
+      <li>Contact form, booking links, social integration</li>
+      <li>Hosting & SSL — first month included</li>
+      <li>Unlimited revisions for 14 days</li>
+      <li>Domain setup support</li>
+      <li>Launch & full handover</li>
+    </ul>
+
+    <!-- UPSELL -->
+    <div class="upsell" id="upsell">
+      <div class="upsell-header">
+        <div class="upsell-checkbox"></div>
+        <div class="upsell-title">Add Website Care</div>
+        <div class="upsell-price">+$40/week</div>
+      </div>
+      <div class="upsell-desc">
+        <strong>Recommended.</strong> Hosting, SSL, weekly backups, unlimited content updates, speed monitoring, security patches, priority support. Cancel anytime.
+      </div>
+    </div>
+
+    <div class="total-line">
+      <div>
+        <div class="total-label">Total today</div>
+        <div class="total-amount">$<span id="total-display">990</span> <em>AUD</em></div>
+      </div>
+      <div style="text-align: right;">
+        <div class="total-label">Recurring</div>
+        <div class="total-amount" id="recurring-display" style="font-size: 1.3rem; opacity: 0.7;">—</div>
+      </div>
+    </div>
+
+    <a href="#" id="checkout-btn" class="btn-primary large" style="width: 100%; justify-content: center;">Secure your spot — Pay $990 now →</a>
+
+    <div style="text-align: center; margin-top: 1.2rem; color: var(--cream-soft); font-size: 0.82rem;">
+      Secure payment via Stripe · 30-day money-back guarantee
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-badge reveal">30<br/>days</div>
+    <h2 class="display reveal">If you're not in love,<br/>get your <em>money back</em>.</h2>
+    <p class="reveal">No fine print. No "studio credit." If your site doesn't ship in 7 days or you're not happy with the result, you get a full refund. We're that confident.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-header">
+    <div class="section-tag mono reveal">— Questions</div>
+    <h2 class="display reveal">The <em>FAQ</em>.</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question">What if I don't have content or photos? <span class="icon">+</span></button>
+      <div class="faq-answer">No problem. We can use professional stock photos that match your brand, and we'll help you draft your content during the brief. Many of our clients arrive with nothing but an idea — we make it work.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Is the $990 really the final price? <span class="icon">+</span></button>
+      <div class="faq-answer">Yes. $990 covers the entire build, including design, development, SEO setup, launch, and the first month of hosting. No surprise fees. The only optional add-on is Website Care ($40/week) which covers ongoing hosting, updates, and support after the first month.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What happens after the first month? <span class="icon">+</span></button>
+      <div class="faq-answer">After your free first month of hosting, you have two options: (1) Subscribe to Website Care at $40/week and we handle everything, or (2) Take ownership and host yourself — we hand over all files and credentials.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Can you really build a quality site in 7 days? <span class="icon">+</span></button>
+      <div class="faq-answer">Yes. We've refined our process to deliver fast without cutting corners. We work on a small number of projects at a time and have a streamlined design system. Most agencies stretch to 6 weeks because they're running 20 projects in parallel — we don't.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do I own the website? <span class="icon">+</span></button>
+      <div class="faq-answer">100%. After launch, you own the design, the code, the domain, and all content. If you ever leave Website Care, we hand over everything. No lock-in, no hostage situation.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What kinds of businesses do you work with? <span class="icon">+</span></button>
+      <div class="faq-answer">Cafés, restaurants, trades, professional services, retail, gyms, health & beauty — pretty much any Perth small business that needs a credible online presence. We design for owner-operators who don't have time for a 2-month agency process.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How does the money-back guarantee work? <span class="icon">+</span></button>
+      <div class="faq-answer">Within 30 days of your purchase, if you're unhappy with the result for any reason, we refund 100% — no questions asked, no awkward back-and-forth. We're confident enough in what we deliver.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">When can you start? <span class="icon">+</span></button>
+      <div class="faq-answer">As soon as you secure your spot. We have 12 spots available for May. Once you check out, you'll receive your brief form within minutes. From there, you'll have your design preview in 48 hours.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="section-tag mono reveal">— Last word</div>
+    <h2 class="display reveal">Your business deserves a<br/>website that <em>actually works</em>.</h2>
+    <p class="reveal">12 spots left for May. Locked-in pricing. 7 days to live.</p>
+    <a href="#offer" class="btn-primary large reveal">Claim your spot — $990 →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Cove<span>.</span></div>
+      <p>A Perth-based design studio building premium websites for small businesses. Fixed price, fixed timeline, fixed quality.</p>
+    </div>
+
+    <div class="footer-meta">
+      <div>
+        <div class="label">Contact</div>
+        <a href="mailto:hello@covestudio.com.au" style="color: var(--cream); text-decoration: none;">hello@covestudio.com.au</a>
+      </div>
+      <div>
+        <div class="label">ABN</div>
+        <div>12 345 678 901</div>
+      </div>
+      <div>
+        <div class="label">Based</div>
+        <div>Perth WA, Australia</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2025 Cove Studio</div>
+    <div>Made on Whadjuk Noongar Country</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP CHAT FLOAT -->
+<a href="https://wa.me/61400000000?text=Hi%2C%20I%27m%20interested%20in%20the%20%24990%20website%20package" class="chat-float" target="_blank">
+  💬 Chat before paying
+</a>
+
+<script>
+  /* === STRIPE PAYMENT LINKS — REPLACE WITH YOUR REAL URLS === */
+  const STRIPE_LINK_990_ONLY = 'https://buy.stripe.com/REPLACE_WITH_990_ONLY_LINK';
+  const STRIPE_LINK_990_PLUS_CARE = 'https://buy.stripe.com/REPLACE_WITH_990_PLUS_CARE_LINK';
+
+  /* === UPSELL TOGGLE === */
+  const upsell = document.getElementById('upsell');
+  const totalDisplay = document.getElementById('total-display');
+  const recurringDisplay = document.getElementById('recurring-display');
+  const checkoutBtn = document.getElementById('checkout-btn');
+
+  let careActive = false;
+
+  upsell.addEventListener('click', () => {
+    careActive = !careActive;
+    upsell.classList.toggle('active', careActive);
+
+    if (careActive) {
+      recurringDisplay.innerHTML = '$40 <em>/week</em>';
+      checkoutBtn.innerHTML = 'Secure your spot — Pay $990 + $40/wk →';
+      checkoutBtn.href = STRIPE_LINK_990_PLUS_CARE;
+      // Optional: track Meta event
+      // if (typeof fbq !== 'undefined') fbq('track', 'AddToCart', { value: 990, currency: 'AUD' });
+    } else {
+      recurringDisplay.innerHTML = '—';
+      checkoutBtn.innerHTML = 'Secure your spot — Pay $990 now →';
+      checkoutBtn.href = STRIPE_LINK_990_ONLY;
+    }
+  });
+
+  /* Default checkout link */
+  checkoutBtn.href = STRIPE_LINK_990_ONLY;
+
+  /* === FAQ ACCORDION === */
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* === SCROLL REVEAL === */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  /* === META PIXEL TRACK CHECKOUT CLICK === */
+  checkoutBtn.addEventListener('click', () => {
+    // if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: careActive ? 990 : 990, currency: 'AUD' });
+  });
+</script>
+
+</body>
+</html>

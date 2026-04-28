@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welcome — Let's build your site · Cove.</title>
+<meta name="robots" content="noindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0F0E0C;
+    --bg-soft: #1A1813;
+    --bg-card: #1F1C16;
+    --cream: #F2E9D8;
+    --cream-soft: #C8BFA9;
+    --terracotta: #E47148;
+    --terracotta-deep: #C25E3C;
+    --moss: #A6B57E;
+    --line: rgba(242, 233, 216, 0.12);
+    --error: #E45D4D;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.45;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.13'/%3E%3C/svg%3E");
+  }
+
+  .display {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 50, "opsz" 144;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  /* === NAV === */
+  nav {
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    background: rgba(15, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: -0.03em;
+    font-variation-settings: "SOFT" 100;
+  }
+
+  .logo span { color: var(--terracotta); }
+
+  .progress-pill {
+    color: var(--cream-soft);
+    font-size: 0.78rem;
+  }
+
+  .progress-pill span {
+    color: var(--moss);
+    font-weight: 600;
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 6rem 2.5rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--moss);
+    border-radius: 999px;
+    margin-bottom: 2rem;
+    color: var(--moss);
+  }
+
+  .hero-tag::before {
+    content: '✓';
+    font-weight: bold;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+    font-variation-settings: "SOFT" 100;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--cream-soft);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .timeline {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .timeline-step {
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--cream-soft);
+  }
+
+  .timeline-step.current {
+    border-color: var(--terracotta);
+    color: var(--cream);
+    background: rgba(228, 113, 72, 0.1);
+  }
+
+  .timeline-step .num {
+    color: var(--terracotta);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    margin-right: 0.4rem;
+  }
+
+  /* === FORM === */
+  .form-wrap {
+    max-width: 760px;
+    margin: 2rem auto 6rem;
+    padding: 0 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .form-section {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-num {
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .form-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  .form-section .section-desc {
+    color: var(--cream-soft);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .field {
+    margin-bottom: 1.8rem;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    color: var(--cream);
+  }
+
+  .field label .req {
+    color: var(--terracotta);
+    margin-left: 0.2rem;
+  }
+
+  .field label .hint {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--cream-soft);
+    font-weight: 400;
+    margin-top: 0.2rem;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="url"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--terracotta);
+  }
+
+  .field textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+
+  .field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='%23E47148'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+
+  @media (max-width: 600px) {
+    .checkbox-grid { grid-template-columns: 1fr; }
+  }
+
+  .checkbox-card {
+    padding: 0.9rem 1.1rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.92rem;
+  }
+
+  .checkbox-card:hover { border-color: var(--cream-soft); }
+
+  .checkbox-card input {
+    accent-color: var(--terracotta);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  .checkbox-card.checked {
+    border-color: var(--terracotta);
+    background: rgba(228, 113, 72, 0.08);
+  }
+
+  .vibe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+  }
+
+  @media (max-width: 600px) {
+    .vibe-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .vibe-card {
+    padding: 1.1rem 0.9rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .vibe-card:hover { border-color: var(--cream-soft); }
+
+  .vibe-card.selected {
+    border-color: var(--terracotta);
+    background: rgba(228, 113, 72, 0.1);
+  }
+
+  .vibe-card input { display: none; }
+
+  .vibe-card .vibe-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .vibe-card .vibe-sub {
+    font-size: 0.78rem;
+    color: var(--cream-soft);
+  }
+
+  .color-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .color-row { grid-template-columns: 1fr; }
+  }
+
+  /* === SUBMIT === */
+  .submit-section {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .btn-submit {
+    padding: 1.2rem 3rem;
+    background: var(--terracotta);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 30px rgba(228, 113, 72, 0.35);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-submit:hover:not(:disabled) {
+    background: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .submit-note {
+    color: var(--cream-soft);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  /* === SUCCESS STATE === */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 6rem 2.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .success-state.active { display: block; }
+
+  .success-badge {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--moss);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 3rem;
+    color: var(--bg);
+    font-weight: bold;
+  }
+
+  .success-state h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1.2rem;
+  }
+
+  .success-state h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .success-state p {
+    color: var(--cream-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .next-steps {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: left;
+    margin-top: 3rem;
+  }
+
+  .next-steps h3 {
+    font-family: 'Fraunces', serif;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+
+  .next-steps ol {
+    list-style: none;
+    counter-reset: nextstep;
+  }
+
+  .next-steps li {
+    counter-increment: nextstep;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    padding-left: 3rem;
+    position: relative;
+  }
+
+  .next-steps li:last-child { border: none; }
+
+  .next-steps li::before {
+    content: counter(nextstep, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    font-family: 'Fraunces', serif;
+    color: var(--terracotta);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.3rem;
+  }
+
+  .next-steps li strong {
+    display: block;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .next-steps li span {
+    color: var(--cream-soft);
+    font-size: 0.92rem;
+  }
+
+  /* === HELP CALLOUT === */
+  .help-callout {
+    background: var(--bg-soft);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.5rem;
+    color: var(--cream-soft);
+    font-size: 0.88rem;
+    display: flex;
+    align-items: start;
+    gap: 0.8rem;
+  }
+
+  .help-callout::before {
+    content: '💡';
+    flex-shrink: 0;
+    font-size: 1.2rem;
+  }
+
+  .help-callout strong { color: var(--cream); }
+
+  /* === FOOTER === */
+  footer {
+    padding: 3rem 2.5rem 2rem;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--cream-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* === REVEAL === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .form-section { padding: 2rem 1.5rem; }
+    .hero { padding: 4rem 1.25rem 2rem; }
+    .form-wrap { padding: 0 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Cove<span>.</span></div>
+  <div class="progress-pill mono">Step <span>02</span> of 04 — Your brief</div>
+</nav>
+
+<!-- MAIN VIEW -->
+<div id="main-view">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag mono">Payment received — you're in</div>
+    <h1 class="display">Welcome aboard.<br/>Let's build your <em>site</em>.</h1>
+    <p>Fill this brief carefully — the more detail you give us, the closer your first design preview will be to the final result. It takes about 10 minutes.</p>
+
+    <div class="timeline">
+      <div class="timeline-step"><span class="num">01</span>Payment</div>
+      <div class="timeline-step current"><span class="num">02</span>Brief</div>
+      <div class="timeline-step"><span class="num">03</span>Design preview · 48h</div>
+      <div class="timeline-step"><span class="num">04</span>Live · day 7</div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <div class="form-wrap">
+    <form id="brief-form" action="https://api.web3forms.com/submit" method="POST">
+
+      <!-- WEB3FORMS ACCESS KEY — REPLACE -->
+      <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY" />
+      <input type="hidden" name="subject" value="🎉 New Cove client brief submitted" />
+      <input type="hidden" name="from_name" value="Cove. Brief Form" />
+      <!-- Honeypot anti-spam -->
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <!-- SECTION 1 — YOU & YOUR BUSINESS -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 01</div>
+        <h2>You & your business</h2>
+        <p class="section-desc">The basics. Who we're building this for.</p>
+
+        <div class="field">
+          <label>Your full name <span class="req">*</span></label>
+          <input type="text" name="full_name" required />
+        </div>
+
+        <div class="field">
+          <label>Email <span class="req">*</span><span class="hint">We'll send your design preview here.</span></label>
+          <input type="email" name="email" required />
+        </div>
+
+        <div class="field">
+          <label>Phone (mobile preferred) <span class="req">*</span></label>
+          <input type="tel" name="phone" required />
+        </div>
+
+        <div class="field">
+          <label>Business name <span class="req">*</span></label>
+          <input type="text" name="business_name" required />
+        </div>
+
+        <div class="field">
+          <label>ABN (if registered)<span class="hint">For your site footer. Optional.</span></label>
+          <input type="text" name="abn" />
+        </div>
+
+        <div class="field">
+          <label>Industry / business type <span class="req">*</span></label>
+          <select name="industry" required>
+            <option value="">Select…</option>
+            <option>Café / Restaurant / Bar</option>
+            <option>Retail / E-commerce</option>
+            <option>Trades & Services (plumber, electrician, etc.)</option>
+            <option>Health & Beauty (salon, spa, clinic)</option>
+            <option>Fitness / Gym / Personal Trainer</option>
+            <option>Professional Services (legal, accounting, consulting)</option>
+            <option>Real Estate</option>
+            <option>Creative (photographer, artist, designer)</option>
+            <option>Education / Training</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>One-line tagline <span class="req">*</span><span class="hint">What you do, in 10 words or less. e.g. "Slow brunch, strong coffee, coastal soul."</span></label>
+          <input type="text" name="tagline" required maxlength="100" />
+        </div>
+
+        <div class="field">
+          <label>Tell us your story <span class="req">*</span><span class="hint">3-5 sentences. How you started, what makes you different, who you serve. Don't worry about the writing — we'll polish.</span></label>
+          <textarea name="story" required></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 2 — VISUAL IDENTITY -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 02</div>
+        <h2>Visual identity</h2>
+        <p class="section-desc">How your site should feel and look.</p>
+
+        <div class="field">
+          <label>Pick a vibe <span class="req">*</span><span class="hint">The closest match. We'll calibrate together.</span></label>
+          <div class="vibe-grid">
+            <label class="vibe-card"><input type="radio" name="vibe" value="Modern Minimal" required /><div class="vibe-name">Modern Minimal</div><div class="vibe-sub">Clean, spacious, neutral</div></label>
+            <label class="vibe-card"><input type="radio" name="vibe" value="Warm & Earthy" /><div class="vibe-name">Warm & Earthy</div><div class="vibe-sub">Wood, cream, organic</div></label>
+            <label class="vibe-card"><input type="radio" name="vibe" value="Luxury / Refined" /><div class="vibe-name">Luxury</div><div class="vibe-sub">Black, gold, premium</div></label>
+            <label class="vibe-card"><input type="radio" name="vibe" value="Bold & Playful" /><div class="vibe-name">Bold & Playful</div><div class="vibe-sub">Colour, energy, fun</div></label>
+            <label class="vibe-card"><input type="radio" name="vibe" value="Coastal" /><div class="vibe-name">Coastal</div><div class="vibe-sub">Light, sand, ocean</div></label>
+            <label class="vibe-card"><input type="radio" name="vibe" value="Industrial / Raw" /><div class="vibe-name">Industrial</div><div class="vibe-sub">Concrete, steel, edge</div></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Brand colours<span class="hint">If you already have them, give us the hex codes (e.g. #C25E3C). If not, leave blank — we'll choose.</span></label>
+          <div class="color-row">
+            <input type="text" name="primary_color" placeholder="Primary colour (e.g. #C25E3C)" />
+            <input type="text" name="secondary_color" placeholder="Secondary colour" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Logo<span class="hint">Drop your logo file in the Drive folder you'll share at the bottom. If you don't have a logo, we'll design a simple wordmark — note that here.</span></label>
+          <select name="logo_status">
+            <option>I have a logo (in my Drive link)</option>
+            <option>I have a logo but it needs a refresh</option>
+            <option>No logo — design a wordmark for me</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>3 reference websites you love<span class="hint">Direct links. Doesn't have to be in your industry. We borrow the energy, not the design.</span></label>
+          <input type="url" name="ref_1" placeholder="https://example.com" style="margin-bottom: 0.6rem;" />
+          <input type="url" name="ref_2" placeholder="https://example.com" style="margin-bottom: 0.6rem;" />
+          <input type="url" name="ref_3" placeholder="https://example.com" />
+        </div>
+      </div>
+
+      <!-- SECTION 3 — CONTENT -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 03</div>
+        <h2>What you sell</h2>
+        <p class="section-desc">Products, services, prices.</p>
+
+        <div class="field">
+          <label>List your main products / services <span class="req">*</span><span class="hint">One per line. Brief description if needed.</span></label>
+          <textarea name="services_list" required style="min-height: 140px;"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Show prices on the site? <span class="req">*</span></label>
+          <select name="show_prices" required>
+            <option value="">Select…</option>
+            <option>Yes — show all prices</option>
+            <option>Some — featured items only</option>
+            <option>No — "contact for quote"</option>
+            <option>Menu format (café/resto)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Anything you DON'T want on the site?<span class="hint">e.g. specific competitors, certain words, off-limits topics.</span></label>
+          <textarea name="exclusions"></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 4 — CONTACT TO DISPLAY -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 04</div>
+        <h2>Contact info to display</h2>
+        <p class="section-desc">What customers see on your site.</p>
+
+        <div class="field">
+          <label>Public business email <span class="req">*</span></label>
+          <input type="email" name="public_email" required />
+        </div>
+
+        <div class="field">
+          <label>Public phone</label>
+          <input type="tel" name="public_phone" />
+        </div>
+
+        <div class="field">
+          <label>Address<span class="hint">Leave blank if online-only.</span></label>
+          <input type="text" name="address" placeholder="142 Marine Parade, Cottesloe WA 6011" />
+        </div>
+
+        <div class="field">
+          <label>Opening hours<span class="hint">Free text. Skip if not relevant.</span></label>
+          <textarea name="hours" placeholder="Mon–Fri 7am–3pm&#10;Sat 7am–4pm&#10;Sun 7:30am–3pm"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Social media links</label>
+          <input type="url" name="instagram" placeholder="Instagram URL" style="margin-bottom: 0.6rem;" />
+          <input type="url" name="facebook" placeholder="Facebook URL" style="margin-bottom: 0.6rem;" />
+          <input type="url" name="other_social" placeholder="Other (LinkedIn, TikTok, Google)" />
+        </div>
+      </div>
+
+      <!-- SECTION 5 — FUNCTIONAL NEEDS -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 05</div>
+        <h2>What the site needs to do</h2>
+        <p class="section-desc">Tick everything you want. We'll integrate.</p>
+
+        <div class="field">
+          <div class="checkbox-grid">
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Contact form" /> Contact form</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Online booking" /> Online booking</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Online ordering / menu" /> Online ordering / menu</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Newsletter signup" /> Newsletter signup</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Photo gallery" /> Photo gallery</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Testimonials" /> Testimonials</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Google Maps embed" /> Google Maps embed</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="WhatsApp button" /> WhatsApp button</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="Blog / News" /> Blog / News</label>
+            <label class="checkbox-card"><input type="checkbox" name="features[]" value="FAQ section" /> FAQ section</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Existing tools to integrate?<span class="hint">e.g. Square POS, Mindbody, Calendly, Mailchimp, Stripe.</span></label>
+          <input type="text" name="integrations" />
+        </div>
+
+        <div class="field">
+          <label>Anything else functional?</label>
+          <textarea name="other_features"></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 6 — DOMAIN -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 06</div>
+        <h2>Domain & launch</h2>
+        <p class="section-desc">Where your site lives.</p>
+
+        <div class="field">
+          <label>Do you have a domain? <span class="req">*</span></label>
+          <select name="has_domain" required>
+            <option value="">Select…</option>
+            <option>Yes — I own one and want to use it</option>
+            <option>No — please help me register one</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Your domain (if you have one)</label>
+          <input type="text" name="existing_domain" placeholder="yourbusiness.com.au" />
+        </div>
+
+        <div class="field">
+          <label>Suggested domain names (if you don't have one)<span class="hint">3 options, in order of preference. We'll check availability.</span></label>
+          <textarea name="domain_suggestions" placeholder="1.&#10;2.&#10;3."></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 7 — ASSETS -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 07</div>
+        <h2>Your files</h2>
+        <p class="section-desc">Logo, photos, existing copy.</p>
+
+        <div class="field">
+          <label>Google Drive / Dropbox link to your assets <span class="req">*</span><span class="hint">Create a folder. Drop in: logo, photos (interior, products, team, food, whatever applies), any existing content. Set sharing to "anyone with link can view." Paste the link here.</span></label>
+          <input type="url" name="assets_link" required placeholder="https://drive.google.com/drive/folders/..." />
+        </div>
+
+        <div class="help-callout">
+          <div><strong>No photos? No problem.</strong> If you don't have professional shots, we'll source high-quality stock that matches your brand. Just note "use stock" in the comments below.</div>
+        </div>
+      </div>
+
+      <!-- SECTION 8 — ANYTHING ELSE -->
+      <div class="form-section">
+        <div class="mono section-num">— Section 08</div>
+        <h2>Anything else?</h2>
+        <p class="section-desc">Last chance to tell us what matters.</p>
+
+        <div class="field">
+          <label>Comments, requests, fears, dreams<span class="hint">Anything you want us to know before we start designing.</span></label>
+          <textarea name="comments" style="min-height: 120px;"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Where did you hear about us?</label>
+          <select name="referral_source">
+            <option value="">Select…</option>
+            <option>Instagram ad</option>
+            <option>Facebook ad</option>
+            <option>Google search</option>
+            <option>Friend / referral</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-section">
+        <button type="submit" class="btn-submit" id="submit-btn">Submit my brief →</button>
+        <div class="submit-note">Your design preview will land in your inbox within 48 hours.</div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+<!-- SUCCESS VIEW -->
+<div class="success-state" id="success-view">
+  <div class="success-badge">✓</div>
+  <h2 class="display">Brief received.<br/>We're <em>on it</em>.</h2>
+  <p>Thank you. Your brief is in our hands and the kitchen is open.</p>
+
+  <div class="next-steps">
+    <h3>What happens next</h3>
+    <ol>
+      <li>
+        <strong>Within 24 hours</strong>
+        <span>You'll receive a confirmation email with your project number and our direct contact line.</span>
+      </li>
+      <li>
+        <strong>Within 48 hours</strong>
+        <span>Your first design preview lands in your inbox. Full mockup of your homepage.</span>
+      </li>
+      <li>
+        <strong>Days 3–6</strong>
+        <span>We refine based on your feedback, then build, optimise, and stress-test.</span>
+      </li>
+      <li>
+        <strong>Day 7</strong>
+        <span>You're live. We hand over the keys, walk you through everything, pop the bottle.</span>
+      </li>
+    </ol>
+  </div>
+
+  <p style="margin-top: 2rem; font-size: 0.9rem;">
+    Got something to add or change? Just reply to your confirmation email — we read everything.
+  </p>
+</div>
+
+<footer>
+  © 2025 Cove. · Made on Whadjuk Noongar Country
+</footer>
+
+<script>
+  /* === FORM SUBMIT === */
+  const form = document.getElementById('brief-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const mainView = document.getElementById('main-view');
+  const successView = document.getElementById('success-view');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        mainView.style.display = 'none';
+        successView.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Track Meta Pixel "Lead" event (fires when brief submitted = high intent)
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', { value: 990, currency: 'AUD' });
+        }
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit my brief →';
+      alert('Something went wrong. Please email us at hello@covestudio.com.au with your details and we\'ll set you up manually.');
+    }
+  });
+
+  /* === VIBE & CHECKBOX VISUAL STATES === */
+  document.querySelectorAll('.vibe-card input').forEach((input) => {
+    input.addEventListener('change', () => {
+      document.querySelectorAll('.vibe-card').forEach((c) => c.classList.remove('selected'));
+      input.closest('.vibe-card').classList.add('selected');
+    });
+  });
+
+  document.querySelectorAll('.checkbox-card input').forEach((input) => {
+    input.addEventListener('change', () => {
+      input.closest('.checkbox-card').classList.toggle('checked', input.checked);
+    });
+  });
+</script>
+
+</body>
+</html>
