@@ -19,7 +19,14 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1272753561672689');
 fbq('track', 'PageView');
-fbq('track', 'Purchase', {value: 990, currency: 'AUD'});
+// Purchase event fires only when arriving from Stripe success redirect (?from=stripe)
+// This prevents fake purchases from people who visit /brief.html directly
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('from') === 'stripe' || urlParams.get('payment') === 'success') {
+    fbq('track', 'Purchase', {value: 990, currency: 'AUD'});
+  }
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1272753561672689&ev=PageView&noscript=1"
@@ -590,7 +597,7 @@ src="https://www.facebook.com/tr?id=1272753561672689&ev=PageView&noscript=1"
 
       <!-- WEB3FORMS ACCESS KEY — REPLACE -->
       <input type="hidden" name="access_key" value="d9215d9a-36a7-44b0-8e03-810a9bf45e2e" />
-      <input type="hidden" name="subject" value="🎉 New Cove client brief submitted" />
+      <input type="hidden" name="subject" value="🎉 New Noweb client brief submitted" />
       <input type="hidden" name="from_name" value="Noweb. Brief Form" />
       <!-- Honeypot anti-spam -->
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
